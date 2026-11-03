@@ -21,4 +21,22 @@ public class LocalAccountSeedConfiguration {
                 new ClassPathResource("db/local/seed-accounts.sql")
         ).execute(dataSource);
     }
+
+// 아래 코드를 람다식으로 변경하여 간단하게 표현 가능
+// Java에서는 new로 생성한 객체를 변수에 저장하지 않고 바로 메서드를 호출할 수 있다
+//    @Bean
+//    ApplicationRunner localAccountSeed(DataSource dataSource) {
+//
+//        return new ApplicationRunner() {
+//
+//            @Override
+//            public void run(ApplicationArguments arguments) {
+//
+//                new ResourceDatabasePopulator(
+//                        new ClassPathResource("db/local/seed-accounts.sql")
+//                ).execute(dataSource);
+//
+//            }
+//        };
+//    }
 }
