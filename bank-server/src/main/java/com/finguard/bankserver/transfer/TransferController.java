@@ -24,13 +24,13 @@ public class TransferController {
     @PostMapping
     public TransferResponse transfer(@Valid @RequestBody TransferRequest request) {
         TransferResponse response = transferService.transfer(request);
-        // The service proxy has committed before it returns to the controller.
         log.info("Transfer response requestId={} transactionId={}", response.requestId(), response.transactionId());
         return response;
     }
 
     @GetMapping("/{requestId}")
     public TransferResponse getTransfer(@PathVariable UUID requestId) {
+        log.info("Get transfer requestId={}", requestId);
         return transferService.getTransfer(requestId);
     }
 }
