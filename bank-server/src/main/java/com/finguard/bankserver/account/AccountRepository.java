@@ -16,6 +16,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     // @Lock을 사용하면 JPA 구현체가 데이터베이스에 맞는 잠금 SQL을 생성
     // DB 성능을 고려한 것도 맞지만, 더 정확히는 동시성 제어와 성능을 동시에 고려해서 일반 조회와 잠금 조회를 분리
     @Lock(LockModeType.PESSIMISTIC_WRITE)
+    // SQL 쿼리에서 :accountId가 파라미터 이름과 일치하면
+    // @Param 생략 가능하지만, 명시적으로 작성하는 것이 가독성에 좋음
     @Query("select account from Account account where account.id = :accountId")
     // @Param("accountId") 은 jpa query에서 :accountId라는 이름으로 매개변수를 전달하기 위해 사용
     Optional<Account> findByIdForUpdate(@Param("accountId") Long accountId);
