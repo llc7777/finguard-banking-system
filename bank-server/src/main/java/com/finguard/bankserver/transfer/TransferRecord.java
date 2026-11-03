@@ -35,6 +35,8 @@ public class TransferRecord {
     @Column(name = "to_account_id", nullable = false, updatable = false)
     private Long toAccountId;
 
+    // precision = 19	소수점 제외 전체 숫자 자릿수
+    // scale = 0	소수점 이하 자릿수 # 즉 소수점 저장 불가 최대 19자리 숫자
     @Column(nullable = false, precision = 19, scale = 0, updatable = false)
     private BigDecimal amount;
 
@@ -43,7 +45,7 @@ public class TransferRecord {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     // Instant는 Java에서 제공하는 특정 시점을 나타내는 날짜·시간 객체
-    // Instant now = Instant.now(); == 2026-11-02T05:30:00Z UTC를 기준
+    // Instant now = Instant.now(); == 2026-11-02T05:30:00Z UTC를 기준+
     private Instant createdAt;
 
     public TransferRecord(TransferRequest request) {

@@ -55,6 +55,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             case 415 -> "UNSUPPORTED_MEDIA_TYPE";
             default -> status.is5xxServerError() ? "INTERNAL_ERROR" : "INVALID_REQUEST";
         };
+        log.warn("HTTP error: type={}, status={}", exception.getClass().getSimpleName(), status.value());
         String message = status.is5xxServerError() ? "An unexpected error occurred." : "Invalid HTTP request.";
         return error(status, code, message, headers);
     }
