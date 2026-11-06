@@ -32,6 +32,9 @@ public class Account {
     private String accountNumber;
     // precision = 19	소수점 제외 전체 숫자 자릿수
     // scale = 0	소수점 이하 자릿수 # 즉 소수점 저장 불가 최대 19자리 숫자
+    // BigDecimal을 사용하는 이유는 금액을 정확하게 표현하고 계산하기 위해서이다.
+    // double이나 float은 부동소수점 방식으로 계산하기 때문에 오차가 발생할 수 있다.
+    // 예 를 들어, 0.1 + 0.2를 double로 계산하면 0.30000000000000004가 된다.
     @Column(nullable = false, precision = 19, scale = 0)
     private BigDecimal balance;
 

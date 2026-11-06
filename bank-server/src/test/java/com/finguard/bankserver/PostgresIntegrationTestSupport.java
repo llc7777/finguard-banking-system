@@ -77,6 +77,7 @@ abstract class PostgresIntegrationTestSupport {
     // transfer 메서드는 MockMvc를 사용하여 POST 요청을 생성
     // .formatted()는 자리들에 실제 값을 채워주는 Java String 메서드
     // 실제 테스트에선 perform() 메서드를 사용하여 이 요청을 실행하고 결과를 검증
+    // JSON에는 UUID라는 자료형이 없기 때문에 String으로 표현
     protected MockHttpServletRequestBuilder transfer(UUID id, long from, long to, String amount) {
         return post("/api/transfers").contentType(APPLICATION_JSON).content("""
                 {"requestId":"%s","fromAccountId":%d,"toAccountId":%d,"amount":%s}
