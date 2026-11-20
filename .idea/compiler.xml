@@ -6,14 +6,17 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.48/6858f13541bab505384f07053c5a7b539bbfd3e3/lombok-1.18.48.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/4.1.2/5ecf2e9f8919aed0c03e5c472d30ddf0b713b170/spring-boot-configuration-processor-4.1.2.jar" />
         </processorPath>
-        <module name="bank-server.main" />
-        <module name="bank-server.test" />
+        <module name="alarm-server.main" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="alarm-server" options="-parameters" />
+      <module name="alarm-server.main" options="-parameters" />
+      <module name="alarm-server.test" options="-parameters" />
       <module name="bank-server" options="-parameters" />
       <module name="bank-server.main" options="-parameters" />
       <module name="bank-server.test" options="-parameters" />
